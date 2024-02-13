@@ -3,12 +3,12 @@
 
 <%
 'RECEBENDO Cï¿½DIGO COMO PARAMETRO E EVT PARA SABER SE VAI INCLUIR OU ALTERAR
-cod = Request.QueryString("cod")
+cod  = Request.QueryString("cod")
 evt  = Request.QueryString("evt")
 if cod <> "" then
    cod = cint(cod)
 end if
-if ucase(evt) = "ALT" then
+if ucase(evt) = "ALT" then 
   'Faz a busca do dados na tabela para inserção dos valores nos campos
   sql = "SELECT * from tb_professor where cd_professor = "&cod
   'Response.Write(sql)
