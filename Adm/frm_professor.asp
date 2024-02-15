@@ -79,7 +79,7 @@ end if
     <div class="form-group">
       <label class="control-label col-sm-2" for="curriculo"><b>Curriculo: </b></label>
       <div class="col-sm-4">
-        <input type="text" class="form-control" id="curriculo" placeholder="Curriculo" name="curriculo" value="<%=curriculo%>">
+        <input type="file" class="form-control" id="curriculo" placeholder="Curriculo" name="curriculo" value="<%=curriculo%>">
       </div>
     </div>
     
