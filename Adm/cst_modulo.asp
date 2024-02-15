@@ -35,9 +35,9 @@ function Excluir(cod)
     </thead>
     <tbody>
 <%
-'AQUI COME�A O DO WHILE ONDE TRAR� AS LINHAS DE ACORDO COM O SELECT FEITO
-i = 1
-do while not rs.eof%>
+  i = 1
+  do while not rs.eof
+%>
       <tr>
        
         <td> <%=i%></td>
@@ -48,7 +48,7 @@ do while not rs.eof%>
           <a href="javascript:Excluir(<%=rs("cd_modulo")%>)"><img src="imagens/excluir.jpg"></a>		
         </td>
         <td>
-          <a href="frm_modelo.asp?evt=alt&cod=<%=rs("cd_modulo")%>"> <img src="imagens/alt.jpg"></a>		
+          <a href="frm_modulo.asp?evt=alt&cod=<%=rs("cd_modulo")%>"> <img src="imagens/alt.jpg"></a>		
 		    </td>
       </tr>
 <%
