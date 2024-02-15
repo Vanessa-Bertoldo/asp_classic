@@ -1,44 +1,47 @@
 <br>
 <!--#include file="wpg_cnx.asp"-->
 <%
-session.LCID = 1046
-'RECEBENDO CAMPOS DO FORMULÁRIO
-opc          = request.querystring("opc")
-botao        =  request.form("botao")
-cod          =  request.form("hfcod")
+session.LCID = 1046 ' Locale ID é um identificador numérico que representa as configurações regionais e de idioma do sistema operacional. Especificar um LCID permite ajustar a formatação de datas, números, moedas e o idioma das mensagens de erro para corresponder às preferências do usuário.
+
+opc                     = request.querystring("opc")
+botao                   =  request.form("botao")
+cod                     =  request.form("hfcod")
+
+nome                    = request.form("nome")
+texto_modulo            = request.form("descricao")
+anexo                   = request.form("anexo")
+cd_curso                = request.form("curso")
 
 if botao = "Incluir" then
-' INCLUINDO OS DADOS RECEBIDOS NA TABELA
-
-'   sql = "insert into TABELA (nome,texto_modulo,anexo,[cd_curso])"
-'   sql = sql & " values('"&variavel1&"','"&variavel2&"')"
-'   response.write sql
-'   response.end
-'   conexao.execute(sql)
+   sql = "insert into tb_modulo (nome,texto_modulo,anexo,cd_curso)"
+   sql = sql & " values('"&nome&"','"&texto_modulo&"','"&anexo&"','"&cd_curso&"')"
+   'response.write sql
+   'response.end
+   conexao.execute(sql)
 %>
 <script>
     alert("Dados incluído com sucesso!")
-    parent.location = "cst_modelo.asp"
+    parent.location = "cst_modulo.asp"
 </script>
 <%
 elseif botao = "Alterar" then
-' ALTERANDO OS DADOS RECEBIDOS NA TABELA
 
-'  sql = "update TABELA set"
-'  sql = sql & " CAMPO1 = '"&variavel1&"',"
-'  sql = sql & " CAMPO2 = '"&variavel2&"'"  
-'  sql = sql & " where codigo = "&cod
-'response.write sql
-'response.end
-'  conexao.execute(sql)
+  sql = "update tb_modulo set"
+  sql = sql & " nome = '"&nome&"',"
+  sql = sql & " texto_modulo = '"&texto_modulo&"'," 
+  sql = sql & " anexo = '"&anexo&"'," 
+  sql = sql & " cd_curso = '"&cd_curso&"'"  
+  sql = sql & " where cd_modulo = "&cod
+  'response.write sql
+  'response.end
+  conexao.execute(sql)
 %>
 <script>
     alert("Dados alterado com sucesso!")
-    parent.location = "cst_modelo.asp"
+    parent.location = "cst_modulo.asp"
 </script>
 <%
 elseif opc <> "" then
-' DELETANDO REGISTRO SELECIONADO
    cod = request.querystring("cod")
    sql = "delete from tb_modulo where cd_modulo="&cod
    'response.write sql
