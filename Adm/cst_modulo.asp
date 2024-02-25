@@ -29,6 +29,7 @@ function Excluir(cod)
         <th>Nome</th>
         <th>Descrição</th>
         <th>Curso</th>	
+        <th>Anexo</th>	
         <th>Excluir</th>
         <th>Editar</th>	
       </tr>
@@ -44,6 +45,7 @@ function Excluir(cod)
         <td><%=rs("nome")%></td>
         <td> <%=rs("texto_modulo")%></td>
         <td><%=rs("curso")%></td>
+        <td><a href="upload/<%=rs("anexo")%>" target="_blank"><%=rs("anexo")%></a></td>
         <td>
           <a href="javascript:Excluir(<%=rs("cd_modulo")%>)"><img src="imagens/excluir.jpg"></a>		
         </td>
